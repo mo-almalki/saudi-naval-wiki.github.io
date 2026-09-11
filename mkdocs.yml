@@ -16,7 +16,15 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-# Add this at the bottom of mkdocs.yml
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  
 extra_css:
   - stylesheets/custom.css
 plugins:
