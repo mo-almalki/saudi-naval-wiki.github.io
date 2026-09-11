@@ -19,3 +19,6 @@ theme:
 # Add this at the bottom of mkdocs.yml
 extra_css:
   - stylesheets/custom.css
+plugins:
+  - search:
+      lang: ar
