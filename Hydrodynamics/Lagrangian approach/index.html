@@ -1,0 +1,837 @@
+
+<!doctype html>
+<html lang="ar" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Eulerian%20approach/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Lagrangian approach - Naval Architecture Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lagrangian-approach" class="md-skip">
+          انتقل إلى المحتوى
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="عنوان العارضة">
+    <a href="../.." title="Naval Architecture Wiki" class="md-header__button md-logo" aria-label="Naval Architecture Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Naval Architecture Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lagrangian approach
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="بحث" placeholder="بحث" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="إبحث">
+        
+        <button type="reset" class="md-search__icon md-icon" title="مسح كلي" aria-label="مسح كلي" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            بدء البحث
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="تصفح" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Naval Architecture Wiki" class="md-nav__button md-logo" aria-label="Naval Architecture Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Naval Architecture Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hydrodynamics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hydrodynamics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Eulerian%20approach/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eulerian approach
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lagrangian approach
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lagrangian approach
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="جدول المحتويات">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      جدول المحتويات
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. التعريف الأساسي
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. الصياغة الرياضية
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. الصياغة الرياضية">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#material-derivative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        المشتق المادي (Material Derivative)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuity-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلة الاستمرارية (Continuity Equation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#momentum-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلة الزخم (Momentum Equation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        الشروط الحدية والابتدائية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        الافتراضات الأساسية
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. التطبيق في الهندسة البحرية
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. التطبيق في الهندسة البحرية">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sloshing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: تحليل الاهتزاز الداخلي (Sloshing) في خزانات السفن
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. القيود والافتراضات
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="جدول المحتويات">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      جدول المحتويات
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. التعريف الأساسي
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. الصياغة الرياضية
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. الصياغة الرياضية">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#material-derivative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        المشتق المادي (Material Derivative)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuity-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلة الاستمرارية (Continuity Equation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#momentum-equation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلة الزخم (Momentum Equation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        الشروط الحدية والابتدائية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        الافتراضات الأساسية
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. التطبيق في الهندسة البحرية
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. التطبيق في الهندسة البحرية">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sloshing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: تحليل الاهتزاز الداخلي (Sloshing) في خزانات السفن
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. القيود والافتراضات
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>طريقة لاغرانج</p>
+<p>كيفية وصف الإزاحة والسرعة والتسارع لأجزاء المائع.</p>
+<p><img alt="image.png" src="../image.png" /></p>
+<h1 id="lagrangian-approach">النهج اللاغرانجي (Lagrangian Approach)</h1>
+<h2 id="1">1. التعريف الأساسي</h2>
+<p>النهج اللاغرانجي (Lagrangian Approach) هو إطار وصف حركة الموائع من خلال تتبع حزمة مادية (Material Parcel) فردية أثناء انتقالها عبر المجال الزمني والمكاني، بحيث تكون الإحداثيات مرتبطة بالجسيم نفسه وليس بموقع ثابت في الفضاء. يحدث هذا الوصف لأن كل جسيم سائل يحمل معه خصائصه — الكثافة <span class="arithmatex">\(\rho\)</span>، الضغط <span class="arithmatex">\(p\)</span>، السرعة <span class="arithmatex">\(\mathbf{u}\)</span> — ويتغير سلوكه وفق القوى المؤثرة عليه، مما يجعله مناسباً بشكل خاص للمشاكل ذات الأسطح الحرة (Free Surface) والتفاعل بين السائل والهيكل (Fluid-Structure Interaction). الحدس الفيزيائي يكمن في أن المراقب «يركب» الجسيم ويقيس التغيرات التي يشاهدها مباشرة، وهو ما يُترجم رياضياً إلى المشتق المادي (Material Derivative) الذي يجمع التغيّر المحلي مع التغيّر الناتج عن الانتقال المكاني. يقابل هذا النهج النهج الأويلري (Eulerian Approach) الذي يثبت نقاط المراقبة في الفضاء ويرصد مرور الجسيمات بها، كما يقابله النهج اللاغرانجي-الأويلري التعسفي (Arbitrary Lagrangian-Eulerian, ALE) الذي يسمح للشبكة بالحركة ضمن حدود وسيطة بين النهجين.</p>
+<h2 id="2">2. الصياغة الرياضية</h2>
+<h3 id="material-derivative">المشتق المادي (Material Derivative)</h3>
+<p>المشتق المادي هو العمود الفقري للصياغة اللاغرانجية، ويعرّف لأي كمية قياسية <span class="arithmatex">\(\phi(\mathbf{x}, t)\)</span> بالعلاقة:</p>
+<div class="arithmatex">\[\frac{D\phi}{Dt} = \frac{\partial\phi}{\partial t} + \mathbf{u} \cdot \nabla\phi\]</div>
+<p>حيث:
+- <span class="arithmatex">\(\dfrac{D\phi}{Dt}\)</span>: معدل تغيّر الكمية <span class="arithmatex">\(\phi\)</span> كما يلاحظها مراقب يتحرك مع الجسيم (وحدة تعتمد على <span class="arithmatex">\(\phi\)</span>)،
+- <span class="arithmatex">\(\dfrac{\partial\phi}{\partial t}\)</span>: المعدل المحلي (Local Rate) عند نقطة ثابتة في الفضاء،
+- <span class="arithmatex">\(\mathbf{u}\)</span>: متجه سرعة الجسيم (m/s)،
+- <span class="arithmatex">\(\nabla\phi\)</span>: تدرّج <span class="arithmatex">\(\phi\)</span> في الفضاء (وحدة <span class="arithmatex">\(\phi\)</span>/m).</p>
+<h3 id="continuity-equation">معادلة الاستمرارية (Continuity Equation)</h3>
+<p>بالصيغة اللاغرانجية:</p>
+<div class="arithmatex">\[\frac{D\rho}{Dt} + \rho\left(\nabla \cdot \mathbf{u}\right) = 0\]</div>
+<p>أو بصيغة مكافئة:</p>
+<div class="arithmatex">\[\frac{1}{\rho}\frac{D\rho}{Dt} = \nabla \cdot \mathbf{u}\]</div>
+<p>حيث <span class="arithmatex">\(\rho\)</span> هي كثافة السائل (kg/m³). للسوائل غير القابلة للانضغاط (Incompressible Fluids):</p>
+<div class="arithmatex">\[\frac{D\rho}{Dt} = 0 \quad \text{و} \quad \nabla \cdot \mathbf{u} = 0\]</div>
+<h3 id="momentum-equation">معادلة الزخم (Momentum Equation)</h3>
+<p>معادلة نافييه-ستوكس (Navier-Stokes) بالصيغة اللاغرانجية:</p>
+<div class="arithmatex">\[\rho\frac{D\mathbf{u}}{Dt} = -\nabla p + \mu\nabla^2\mathbf{u} + \mathbf{f}\]</div>
+<p>حيث:
+- <span class="arithmatex">\(\rho\dfrac{D\mathbf{u}}{Dt}\)</span>: تسارع الجسيم المادي (N/m³)،
+- <span class="arithmatex">\(-\nabla p\)</span>: قوة تدرّج الضغط (Pa/m = N/m³)،
+- <span class="arithmatex">\(\mu\)</span>: اللزوجة الديناميكية (Pa·s)،
+- <span class="arithmatex">\(\nabla^2\mathbf{u}\)</span>: لابلاسيان السرعة (s⁻²)،
+- <span class="arithmatex">\(\mathbf{f}\)</span>: قوى الجسم الخارجية لكل وحدة حجم (N/m³)، مثل الجاذبية <span class="arithmatex">\(\rho\mathbf{g}\)</span>.</p>
+<h3 id="_1">الشروط الحدية والابتدائية</h3>
+<p><strong>الشروط الابتدائية:</strong> تُحدد حالة كل جسيم عند <span class="arithmatex">\(t = 0\)</span>:</p>
+<div class="arithmatex">\[\mathbf{x}_i(t=0) = \mathbf{x}_{i,0}, \quad \mathbf{u}_i(t=0) = \mathbf{u}_{i,0}, \quad p_i(t=0) = p_{i,0}\]</div>
+<p><strong>الشروط الحدية:</strong>
+- سطح حر (Free Surface): شرط ديناميكي <span class="arithmatex">\(p = p_{\text{atm}}\)</span> وشرط حركي يمنع اختراق السطح.
+- جدار صلب (Solid Wall): شرط عدم الانزلاق (No-Slip) <span class="arithmatex">\(\mathbf{u} = \mathbf{u}_{\text{wall}}\)</span> أو انزلاق كامل (Free-Slip) حسب النموذج.</p>
+<h3 id="_2">الافتراضات الأساسية</h3>
+<ol>
+<li><strong>استمرارية الوسط:</strong> يُفترض أن السائل وسط مستمر (Continuum Assumption) ولا يوجد فراغ بين الجسيمات.</li>
+<li><strong>نظام إحداثيات مرتبط بالجسيم:</strong> الإحداثيات <span class="arithmatex">\(\mathbf{X}\)</span> تحدد هوية الجسيم (إحداثيات لاغرانجية)، بينما <span class="arithmatex">\(\mathbf{x}(t)\)</span> موقعه اللحظي.</li>
+<li><strong>الإشارات الاصطلاحية:</strong> اتجاه إيجابي لـ <span class="arithmatex">\(\nabla p\)</span> يشير نحو زيادة الضغط؛ القوة الناتجة <span class="arithmatex">\(-\nabla p\)</span> تدفع السائل من مناطق الضغط العالي إلى المنخفض.</li>
+</ol>
+<h2 id="3">3. التطبيق في الهندسة البحرية</h2>
+<h3 id="sloshing">مثال: تحليل الاهتزاز الداخلي (Sloshing) في خزانات السفن</h3>
+<p><strong>المسألة الهندسية:</strong> اهتزاز السائل داخل الخزان (Sloshing) هو ظاهرة حرجة في تصميم سفن نقل الغاز الطبيعي المسال (LNG Carriers) والسفن الحاوية ذات الخزانات الجزئية الامتلاء. عندما تتعرض السفينة لحركات دورانية (Roll/Pitch) بفعل الأمواج، يتحرك سطح السائل الحر بشكل غير خطي، مما يولّد قوى ديناميكية قد تصل إلى عدة أضعاف وزن السائل الساكن، وتؤثر على استقرار السفينة وهيكل الخزان.</p>
+<p><strong>المعادلات المستخدمة:</strong> في التحليل اللاغرانجي للاهتزاز الداخلي، تُحل معادلات الاستمرارية والزخم أعلاه مع:
+- معامل رقم رينولدز (Reynolds Number): <span class="arithmatex">\(\displaystyle Re = \frac{\rho U L}{\mu}\)</span> حيث <span class="arithmatex">\(U\)</span> سرعة نموذجية (~1–5 m/s في خزان بحجم 20×10×8 m)، و<span class="arithmatex">\(L\)</span> طول مميز (~10 m).
+- عدد فرود (Froude Number): <span class="arithmatex">\(\displaystyle Fr = \frac{U}{\sqrt{gL}}\)</span> (~0.1–0.3 للاهتزاز الداخلي)، وهو الأهم لأن الظاهرة محكومة بالجاذبية.
+- شرط السطح الحر: <span class="arithmatex">\(p = p_{\text{atm}}\)</span> على السطح، مع شرط الحركة الحرة الذي يربط سرعة السطح بتغيّر ارتفاعه.</p>
+<p><strong>قيم نموذجية:</strong> لخزان LNG بسعة 16,000 m³ ومعدل امتلاء جزئي (Partial Fill) بنسبة 30%، يمكن لقوى الاهتزاز الداخلية أن تولّد عزم انقلاب يصل إلى 10–30 MN·m، وتتجاوز الإجهادات في جدران الخزان قيم التصميم الاعتيادية إذا لم تُحسب بدقة.</p>
+<p><strong>كيف يدخل المفهوم في التصميم:</strong> يستخدم المهندس النهج اللاغرانجي لتتبع حركة السطح الحر بدقة عالية، خاصة عند حدوث اصطدام السائل بجدران الخزان (Slamming) أو تشكل دوامات كبيرة. النتائج تُستخدم لتحديد:
+- مواقع وأبعاد الحواجز المضادة للاهتزاز (Anti-Slosh Baffles).
+- سماكة جدران الخزان في المناطق عالية الإجهاد.
+- متطلبات أنظمة التحكم بالاستقرار (Stabilization Systems).</p>
+<p><strong>الأدوات والنماذج الشائعة:</strong>
+- <strong>SPH (Smoothed Particle Hydrodynamics):</strong> طريقة لاغرانجية بحتة تعتمد تقريب النواة (Kernel Approximation) لتمثيل الحقول المستمرة. شائعة في محاكاة السطوح الحرة المعقدة والانفصال.
+- <strong>ALE (Arbitrary Lagrangian-Eulerian):</strong> تجمع بين تتبع السطح الحر (لاغرانجي) وحساب التدفق الداخلي بشبكة متحركة (أويلري تعسفية). تُستخدم بكثرة في OpenFOAM وANSYS AQWA.
+- <strong>OpenFOAM:</strong> يوفر أدوات مثل <code>interFoam</code> مع VOF (Volume of Fluid) — وهي أويلرية أساساً — لكن الإضافات اللاغرانجية مثل <code>reactingTwoPhaseEulerFoam</code> تدعم التتبع الهجين.</p>
+<p><strong>ما يفسره المفهوم:</strong> النهج اللاغرانجي يفسر لماذا تتراكم الطاقة في مناطق محددة من الخزان (مثل الزوايا) وكيف تنتقل الموجات الداخلية من حركة بسيطة إلى حركة فوضوية (Chaotic Sloshing) عند تجاوز حد معين من عدد فرود، وهو تفسير يصعب الحصول عليه بالنهج الأويلري التقليدي بسبب صعوبة تمثيل السطح الحر المتشكّل.</p>
+<h2 id="4">4. القيود والافتراضات</h2>
+<ul>
+<li>
+<p><strong>صحة الصياغة وحدودها:</strong> الصياغة اللاغرانجية تفترض استمرارية الوسط، لذا فهي غير صالحة عند مقاييس أقل من متوسط المسار الحر (Mean Free Path) للجزيئات. كما أن افتراض عدم الانضغاط ينطبق على معظم تطبيقات NAME لكنه يفشل في ظواهر الصدمة المائية (Water Hammer) حيث تتغير الكثافة بشكل ملحوظ.</p>
+</li>
+<li>
+<p><strong>التكلفة الحسابية والحساسية العددية:</strong> في طرق SPH، يؤدي تراكم الجسيمات (Particle Clustering) أو تشتتها المفرط (Excessive Dispersion) إلى تدهور دقة التقريب النووي (Kernel Approximation Error)، مما يتطلب تصحيحاً مستمراً لتوزيع الجسيمات. عدد الجسيمات المطلوب لمحاكاة واقعية لخزان بحجم 16,000 m³ يتراوح بين <span class="arithmatex">\(10^6\)</span> و<span class="arithmatex">\(10^7\)</span> جسيم، مما يستهلك ساعات إلى أيام حسابية حتى على الحواسيب المتوازية.</p>
+</li>
+<li>
+<p><strong>تشوه الشبكة في ALE:</strong> في الطرق الهجينة ALE، يؤدي التشوه الشديد للشبكة (Mesh Distortion) إلى انهيار الحل العددي، مما يستلزم إعادة شبكة دورية (Remeshing) تكلف حسابياً وقد تُدخل أخطاءً رقمية إضافية.</p>
+</li>
+<li>
+<p><strong>متى لا يصلح النهج اللاغرانجي:</strong> لا يُفضَّل النهج اللاغرانجي البحت في مشاكل الدوران المحيطي واسع النطاق (Large-Scale Ocean Circulation) أو في التدفقات ذات المجالات الكبيرة جداً حيث يكون النهج الأويلري أكثر كفاءة. كذلك، عند وجود تفاعلات متعددة الأطوار (Multiphase Flows) مع غازات قابلة للانضغاط، يصبح النهج الهجين ضرورياً. الخطأ الشائع هو تطبيق SPH بدون تصحيح لزوجة اصطناعية (Artificial Viscosity) مناسبة، مما ينتج عنه تذبذبات ضغط غير فيزيائية عند السطح الحر.
+</canvas></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u062a\u0645 \u0627\u0644\u0646\u0633\u062e \u0627\u0644\u0649 \u0627\u0644\u062d\u0627\u0641\u0638\u0629", "clipboard.copy": "\u0646\u0633\u062e \u0625\u0644\u0649 \u0627\u0644\u062d\u0627\u0641\u0638\u0629", "search.result.more.one": "\u0623\u0643\u062b\u0631 \u0645\u0646 1 \u0641\u064a \u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062d\u0629", "search.result.more.other": "\u0623\u0643\u062b\u0631 \u0645\u0646 # \u0641\u064a \u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062d\u0629", "search.result.none": "\u0644\u0627 \u062a\u0648\u062c\u062f \u0646\u062a\u0627\u0626\u062c", "search.result.one": "\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0628\u062d\u062b \u0645\u0633\u062a\u0646\u062f \u0648\u0627\u062d\u062f", "search.result.other": "\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0628\u062d\u062b # \u0645\u0633\u062a\u0646\u062f\u0627\u062a", "search.result.placeholder": "\u0627\u0643\u062a\u0628 \u0644\u0628\u062f\u0621 \u0627\u0644\u0628\u062d\u062b", "search.result.term.missing": "\u0645\u0641\u0642\u0648\u062f", "select.version": "\u0625\u062e\u062a\u0631 \u0627\u0644\u0625\u0635\u062f\u0627\u0631"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
